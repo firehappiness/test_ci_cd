@@ -4,4 +4,11 @@ stages:
   - runScriptConfig:
       image: busybox
       shellScript: ls
+- name: push
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: cicd
+      registry: 127.0.0.1:34983
 timeout: 60
