@@ -1,14 +1,14 @@
 stages:
 - name: build-stage
   steps:
-  - runScriptConfig:
-      image: busybox
-      shellScript: ls
-- name: push
-  steps:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: cicd
+      tag: ci_cd_java:latest
       registry: 127.0.0.1:34983
+- name: push
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
 timeout: 60
+notification: {}
