@@ -1,12 +1,17 @@
-apiVersion: apps/v1
+apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: test-ci-cd
 spec:
+  selector:
+    matchLabels: 
+      app: java
   progressDeadlineSeconds: 600
   replicas: 1
   template: 
     metadata: 
+      labels:
+        app: java
     spec:
       containers:
       - name: java-app
