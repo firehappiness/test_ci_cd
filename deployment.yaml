@@ -1,23 +1,15 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: test-ci-cd
-  labels: 
-    app: java
 spec:
+  progressDeadlineSeconds: 600
   replicas: 1
-  selector:
-    matchLabels:
-      app: java
-  template:
-    metadata:
-      labels:
-        app: java
+  template: 
+    metadata: 
     spec:
-      imagePullSecrets:
-      - name: pipeline-docker-registry
       containers:
-      - name: maven
+      - name: java-app
         image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
         ports:
         - containerPort: 8080
