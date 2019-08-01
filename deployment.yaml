@@ -1,7 +1,8 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: test-ci-cd
+  name: java-app
+  namespaces: default
 spec:
   selector:
     matchLabels: 
