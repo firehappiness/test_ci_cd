@@ -4,7 +4,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: ci_cd_java:latest
+      tag: app-java:${CICD_EXECUTION_SEQUENCE}
       registry: 127.0.0.1:34983
 - name: push
   steps:
