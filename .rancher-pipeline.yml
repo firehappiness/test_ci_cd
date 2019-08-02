@@ -5,10 +5,10 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: app-java:${CICD_EXECUTION_SEQUENCE}
-      registry: 127.0.0.1:34976
+      pushRemote: true
+      registry: 172.20.12.139:32076/repository/my-docker-repo/
 - name: push
   steps:
   - applyYamlConfig:
       path: ./deployment.yaml
 timeout: 60
-notification: {}
