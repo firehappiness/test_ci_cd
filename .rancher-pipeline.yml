@@ -8,8 +8,7 @@ stages:
       registry: 172.20.12.139:30002
     env:
       PLUGIN_DEBUG: "true"
-      PLUGIN_MIRROR: 172.20.12.139:30002
-        
+      
 - name: push
   steps:
   - applyYamlConfig:
