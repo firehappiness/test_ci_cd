@@ -6,7 +6,7 @@ stages:
       buildContext: .
       tag: app-java:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
-      registry: 172.20.12.139:30002
+      registry: localhost:30082
     env:
       PLUGIN_INSECURE: "true"
 - name: push
@@ -14,3 +14,4 @@ stages:
   - applyYamlConfig:
       path: ./deployment.yaml
 timeout: 60
+notification: {}
